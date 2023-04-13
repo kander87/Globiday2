@@ -1,0 +1,392 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: black;
+    width: 100%;
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 100;
+    }
+}
+
+#animate-area {
+    width: 100%;
+    height: 100%;
+    padding-right: 40%;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 10s linear infinite alternate;
+    position: relative;
+}
+
+#background {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.first-txt {
+    position: absolute;
+    top: 10rem;
+    font-size: 5em;
+    left: 60%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(0.70);
+    animation: scale 2s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.second-txt {
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    color: grey;
+    z-index: 1000;
+    transform: scale(0);
+    animation: scale 1.75s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    animation-delay: 1.5s;
+
+}
+
+.second-txt:hover {
+    color: white;
+    background: rgba(202, 21, 81, .75);
+    padding: .5%;
+
+}
+
+.third-txt {
+    position: absolute;
+    top: 70%;
+    right: 5%;
+    color: grey;
+    z-index: 1000;
+    transform: scale(0);
+    animation: scale 1.75s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    animation-delay: 2s;
+}
+
+.third-txt:hover {
+    color: white;
+    background: rgba(246, 81, 29, .75);
+    padding: .5%;
+
+}
+
+
+.fourth-txt {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    color: grey;
+    z-index: 1000;
+    transform: scale(0);
+    animation: scale 1.75s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    animation-delay: 2.5s;
+}
+
+.fourth-txt:hover {
+    color: white;
+    background: rgba(127, 184, 0, .75);
+    padding: .5%;
+}
+
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes animatedBackground2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 100;
+    }
+}
+
+.animate-area2 {
+    width: 100%;
+    height: 100%;
+    /* padding-right:40%; */
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground2 10s linear infinite alternate;
+    /* background-color: black; */
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 2%;
+    left: 37%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(0.70);
+    animation: scale 1s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+a{
+    color:rgb(191, 255, 185);
+}
+
+a:hover{
+    color:rgb(21, 255, 0);
+}
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+/* @media screen and (min-width: 601px) {
+    div.row {
+        font-size: 100px;
+    }
+    div.greeting {
+        font-size: 80px;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+/* @media screen and (max-width: 600px) {
+    div.row {
+        font-size: 30px;
+    }
+    div.greeting {
+        font-size: 20px;
+    }
+} */ 
+
+.login {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(0.70);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.back {
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    color: grey;
+    z-index: 1000;
+    transform: scale(0);
+    animation: scale 1s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    /* animation-delay: 1.5s; */
+
+}
+
+.back:hover {
+    color: white;
+    background: rgba(202, 21, 81, .75);
+    padding: .5%;
+    border-radius: 15px;
+}
+
+.next {
+    position: absolute;
+    top: 85%;
+    right: 5%;
+    color: grey;
+    z-index: 1005;
+    transform: scale(0);
+    animation: scale 1s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    /* animation-delay: 0s; */
+
+}
+
+.next:hover {
+    color: white;
+    background: rgba(246, 81, 29, .75);
+    padding: .5%;
+    border-radius: 15px;
+}
+
+.greeting {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.row2 {
+    position: absolute;
+    top: 20%;
+    left: 43.5%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(0.70);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+#nav {
+    position: absolute;
+    width: 95%;
+    margin: 2rem;
+    top: 12%;
+    color: white;
+    z-index: 1000;
+
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+/* 
+.thead-dark {
+    
+        color: white;
+        background-color:  rgba(202, 21, 81, .80);
+    
+} */
+
+.tabletitle {
+    position: absolute;
+    top: 30%;
+    left: 46%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    font-size: x-large;
+}
+
+.table {
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 1%;
+    z-index: 1000;
+    width: 50rem;
+    color: white;
+    background-color: black;
+    opacity: 75%;
+}
+
+th{
+font-size: larger;
+}
+tr{
+    text-align: center;
+    background-color: black;
+}
+
+#table2 {
+    color: white;
+    position: absolute;
+    top: 15rem;
+    left: 25%;
+    height: 50%;
+    z-index: 1000;
+    width: 60rem;
+    color: white;
+    background-color: black;
+    opacity: 75%;
+    overflow-y:scroll;
+}
+
+.saveName {
+    position: absolute;
+    top: 21%;
+    left: 60%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+}
+
+.controls {
+    color: white;
+    border: 2em white;
+}
+
+.search {
+    position: absolute;
+    left: 43%;
+    top: 30%;
+    z-index: 1005;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px, 10px, -100px, 10px;
+    margin: 0px, 0px, -20px, 0px;
+}
+
+.row3 {
+    position: absolute;
+    top: 28%;
+    left: 15%;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+
+}
+
+.is-hidden {
+    display: none;
+}
+
+
+.card-columns {
+    width: 100%;
+    height: 15%;
+    overflow: auto;
+    scrollbar-color: rebeccapurple green;
+
+}
+
+.scroller {
+    width: 300px;
+    height: 100px;
+    overflow-y: scroll;
+}
+
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+    }
+}
+
+
+.holidayDiv {
+    display: flex;
+}
+
+.holidayList {
+    align-self: center;
+    left: 15%
+}

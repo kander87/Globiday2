@@ -1,0 +1,333 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Save Calendar</title>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="animate-area2">
+            <div class="row">
+                <h1 class="title display-1"> GLOBIDAY</h1>
+            </div>
+
+            <div id="nav" class="flex align-center justify-between">
+                <div class="greeting">
+                    <!-- add jinja for user_in_db.name here -->
+                    <h1 class="display-4"> Step 2: Verify Your Countries </h1>
+                </div>
+
+                <div class="controls">
+                    <a href="/calendars"><button type="btn btn-light  rounded-lg border">Dashboard</button></a>
+                    <!-- <a href="/myrecipes"><button type="myrecipes">My Sightings</button></a> -->
+                    <a href="/"><button type=" rounded-lg btn btn-light">Logout</button></a>
+                </div>
+            </div>
+
+            <div>
+                <a href="/add/countries">
+                    <h3 class="back display-5">Back</h3>
+                </a>
+            </div>
+
+
+
+            <div id="background">
+                <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+                <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+            </div>
+
+            <!-- onsubmit="getCountries(event)" -->
+            <div id="chartdiv"></div>
+            <section>
+
+                    <div>
+                        <div class="row3">
+                            <div class="col-xs-6 p-3 border border-dark">
+                                <h1>Your Selected Countries</h1>
+                                <label class=" primary form-label ">Country:</label>
+                                {% for one_country in session['country_codes'] %}
+                                <!-- <div class="row"> -->
+                                    
+                                    <ul id="user_countries" for="user_countries" name="user_countries" value="user_countries">
+                                        {% if one_country == "AD"%}
+                                            <li>Andorra</li>
+                                        {% elif one_country == "AL"%}
+                                            <li>Albania</li>
+                                        {% elif one_country == "AR"%}
+                                            <li>Argentina</li>    
+                                        {% elif one_country  == "AU"%}
+                                            <li>Australia</li>
+                                        {% elif one_country  == "AT"%}
+                                            <li>Austria</li>
+                                        {% elif one_country  == "AX"%}
+                                            <li>Aland Islands</li>
+                                        {% elif one_country  == "BA"%}
+                                            <li>Bosnia and Herzegovina</li>
+                                        {% elif one_country  == "BB"%}
+                                            <li>Barbados</li>
+                                        {% elif one_country  == "BE"%}
+                                            <li>Belgium</li>
+                                        {% elif one_country  == "BG"%}
+                                            <li>Bulgaria</li>
+                                        {% elif one_country  == "BJ"%}
+                                        <li>Benin</li>
+                                        {% elif one_country  == "BO"%}
+                                        <li>Bolivia</li>
+                                        {% elif one_country  == "BR"%}
+                                        <li>Brazil</li>
+                                        {% elif one_country  == "BS"%}
+                                        <li>Bahamas</li>
+                                        {% elif one_country  == "BW"%}
+                                        <li>Botswana</li>
+                                        {% elif one_country  == "BY"%}
+                                        <li>Belarus</li>
+                                        {% elif one_country  == "BZ"%}
+                                        <li>Belize</li>
+                                        {% elif one_country  == "CA"%}
+                                        <li>Canada</li>
+                                        {% elif one_country  == "CL"%}
+                                        <li>Chile</li>
+                                        {% elif one_country  == "CN"%}
+                                        <li>China</li>
+                                        {% elif one_country  == "CO"%}
+                                        <li>Colombia</li>
+                                        {% elif one_country  == "CR"%}
+                                        <li>Costa Rica</li>
+
+                                        {% elif one_country  == "CU"%}
+                                        <li>Cuba</li>
+                                        {% elif one_country  == "CY"%}
+                                        <li>Cyprus</li>
+                                        {% elif one_country  == "CZ"%}
+                                        <li>Czechia</li>
+                                        {% elif one_country  == "DE"%}
+                                        <li>Germany</li>
+                                        {% elif one_country  == "DK"%}
+                                        <li>Denmark</li>
+
+                                        {% elif one_country  == "DO"%}
+                                        <li>Dominican Republic</li>
+
+                                        {% elif one_country  == "EC"%}
+                                        <li>Ecuador</li>
+                                        {% elif one_country  == "EG"%}
+                                        <li>Egypt</li>
+
+                                        {% elif one_country  == "EE"%}
+                                        <li>Estonia</li>
+                                        {% elif one_country  == "ES"%}
+                                        <li>Spain</li>
+
+                                        {% elif one_country  == "FO"%}
+                                        <li>Faroe Islands</li>
+
+                                        {% elif one_country  == "FI"%}
+                                        <li>Finland</li>
+                                        {% elif one_country  == "FR"%}
+                                        <li>France</li>
+
+                                        {% elif one_country  == "GA"%}
+                                        <li>Gabon</li>
+                                        {% elif one_country  == "GM"%}
+                                        <li>Gambia</li>
+
+                                        {% elif one_country  == "GI"%}
+                                        <li>Gibraltar</li>
+                                        {% elif one_country  == "GR"%}
+                                        <li>Greece</li>
+                                        {% elif one_country  == "GL"%}
+                                        <li>Greenland</li>
+                                        {% elif one_country  == "GD"%}
+                                        <li>Grenada</li>
+
+                                        {% elif one_country  == "GT"%}
+                                        <li>Guatemala</li>
+                                        {% elif one_country  == "GG"%}
+                                        <li>Guernsey</li>
+
+                                        {% elif one_country  == "GY"%}
+                                        <li>Guyana</li>
+
+                                        {% elif one_country  == "HT"%}
+                                        <li>Haiti</li>
+                                        {% elif one_country  == "HN"%}
+                                        <li>Honduras</li>
+
+                                        {% elif one_country  == "HU"%}
+                                        <li>Hungary</li>
+                                        {% elif one_country  == "HR"%}
+                                        <li>Croatia</li>
+
+                                        {% elif one_country  == "IS"%}
+                                        <li>Iceland</li>
+
+                                        {% elif one_country  == "ID"%}
+                                        <li>Indonesia</li>
+
+                                        {% elif one_country  == "IE"%}
+                                        <li>Ireland</li>
+                                        {% elif one_country  == "IM"%}
+                                        <li>Isle of Man</li>
+
+                                        {% elif one_country  == "IT"%}
+                                        <li>Italy</li>
+                                        {% elif one_country  == "JM"%}
+                                        <li>Jamaica</li>
+                                        {% elif one_country  == "JP"%}
+                                        <li>Japan</li>
+                                        {% elif one_country  == "JE"%}
+                                        <li>Jersey</li>
+                                        {% elif one_country  == "KR"%}
+                                        <li>South Korea</li>
+                                        {% elif one_country  == "LV"%}
+                                        <li>Latvia</li>
+                                        {% elif one_country  == "LS"%}
+                                        <li>Lesotho</li>
+
+                                        {% elif one_country  == "LI"%}
+                                        <li>Liechtenstein</li>
+                                        {% elif one_country  == "LT"%}
+                                        <li>Lithuania</li>
+                                        {% elif one_country  == "LU"%}
+                                        <li>Luxembourg</li>
+
+                                        {% elif one_country  == "MG"%}
+                                        <li>Madagascar</li>
+
+                                        {% elif one_country  == "MT"%}
+                                        <li>Malta</li>
+
+                                        {% elif one_country  == "MX"%}
+                                        <li>Mexico</li>
+
+                                        {% elif one_country  == "MD"%}
+                                        <li>Moldova</li>
+                                        {% elif one_country  == "MC"%}
+                                        <li>Monaco</li>
+                                        {% elif one_country  == "MN"%}
+                                        <li>Mongolia</li>
+                                        {% elif one_country  == "ME"%}
+                                        <li>Montenegro</li>
+                                        {% elif one_country  == "MS"%}
+                                        <li>Montserrat</li>
+                                        {% elif one_country  == "MA"%}
+                                        <li>Morocco</li>
+                                        {% elif one_country  == "MZ"%}
+                                        <li>Mozambique</li>
+
+                                        {% elif one_country  == "NA"%}
+                                        <li>Namibia</li>
+
+                                        {% elif one_country  == "NL"%}
+                                        <li>Netherlands</li>
+                                        {% elif one_country  == "NZ"%}
+                                        <li>New Zealand</li>
+                                        {% elif one_country  == "NI"%}
+                                        <li>Nicaragua</li>
+                                        {% elif one_country  == "NE"%}
+                                        <li>Niger</li>
+                                        {% elif one_country  == "NG"%}
+                                        <li>Nigeria</li>
+
+                                        {% elif one_country  == "NO"%}
+                                        <li>Norway</li>
+
+                                        {% elif one_country  == "PA"%}
+                                        <li>Panama</li>
+                                        {% elif one_country  == "PG"%}
+                                        <li>Papua New Guinea</li>
+                                        {% elif one_country  == "PY"%}
+                                        <li>Paraguay</li>
+                                        {% elif one_country  == "PE"%}
+                                        <li>Peru</li>
+
+                                        {% elif one_country  == "PL"%}
+                                        <li>Poland</li>
+                                        {% elif one_country  == "PT"%}
+                                        <li>Portugal</li>
+                                        {% elif one_country  == "PR"%}
+                                        <li>Puerto Rico</li>
+
+                                        {% elif one_country  == "RO"%}
+                                        <li>Romania</li>
+                                        {% elif one_country  == "RU"%}
+                                        <li>Russia</li>
+                                        {% elif one_country  == "RS"%}
+                                        <li>Serbia</li>
+
+                                        {% elif one_country  == "SK"%}
+                                        <li>Slovakia</li>
+                                        {% elif one_country  == "SI"%}
+                                        <li>Slovenia</li>
+
+                                        {% elif one_country  == "SR"%}
+                                        <li>Suriname</li>
+
+                                        {% elif one_country  == "SE"%}
+                                        <li>Sweden</li>
+
+
+                                        {% elif one_country  == "SG"%}
+                                        <li>Singapore</li>
+                                        {% elif one_country  == "SJ"%}
+                                        <li>Svalbard and Jan Mayen</li>
+                                        
+                                        {% elif one_country  == "SM"%}
+                                        <li>San Marino</li>
+                                        {% elif one_country  == "SV"%}
+                                        <li>El Salvador</li>
+
+                                        {% elif one_country  == "TN"%}
+                                        <li>Tunisia</li>
+                                        {% elif one_country  == "TR"%}
+                                        <li>Turkey</li>
+
+                                        {% elif one_country  == "UA"%}
+                                        <li>Ukraine</li>
+                                        {% elif one_country  == "US"%}
+                                        <li>United States</li>
+                                        {% elif one_country  == "UY"%}
+                                        <li>Uruguay</li>
+
+                                        {% elif one_country  == "VE"%}
+                                        <li>Venezuela</li>
+                                        {% elif one_country  == "VN"%}
+                                        <li>Vietnam</li>
+                                        {% elif one_country  == "VA"%}
+                                        <li>Vatican City</li>                                        
+                                        {% elif one_country  == "ZW"%}
+                                        <li>Zimbabwe</li>
+                                        {% elif one_country  == "ZA"%}
+                                        <li>South Africa</li>
+                                        {% endif %}
+                                    </ul>
+                                {% endfor %}
+                                </div>
+
+                            </div>                                <div>
+                                    
+                                        <a href="/save/calendar" ><h3 class="next display-5">Generate</h3></a>
+                                    
+                                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

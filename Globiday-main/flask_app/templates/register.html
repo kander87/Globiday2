@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+</head>
+
+    <body>
+
+        <div class="container-fluid">
+            <div class="animate-area2">
+                <div class="row">
+                    <h1 class="title display-1"> GLOBIDAY</h1>
+                </div>
+                <div class="row2">
+
+                    <div>
+            
+                        <form class=" p-3 border border-dark" action='/register/user' method='post'>
+            
+                            <h1>Register</h1>
+                            <div class="form-outline mb-4">
+                                <label class="form-label">First Name:</label>
+                                <input type="text" id="first_name" class="form-control" for="first_name" name="first_name" />
+                                {% for message in get_flashed_messages(category_filter=["first"]) %}
+                                <p style="color:red">{{message}}</p><!-- display each message in a paragraph tag -->
+                                {% endfor %}
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Last Name:</label>
+                                <input type="text" id="last_name" class="form-control" for="last_name" name="last_name" />
+                                {% for message in get_flashed_messages(category_filter=["last"]) %}
+                                <p style="color:red">{{message}}</p><!-- display each message in a paragraph tag -->
+                                {% endfor %}
+                            </div>
+            
+                            <div>
+                                <label class="form-label" for="email">Email:</label>
+                                <input type="password" id="email" class="form-control" for="email" name="email" />
+                                {% for message in get_flashed_messages(category_filter=["email"]) %}
+                                <p style="color:red">{{message}}</p><!-- display each message in a paragraph tag -->
+                                {% endfor %}
+                            </div>
+                            <br>
+                            <div>
+                                <label class="form-label" for="password">Password:</label>
+                                <input type="password" id="password" class="form-control" for="password" name="password" />
+                            <input type="checkbox" onclick="showPassword()">Show Password
+                                {% for message in get_flashed_messages(category_filter=["pass"]) %}
+                                <p style="color:red">{{message}}</p><!-- display each message in a paragraph tag -->
+                                {% endfor %}
+                            </div>
+                            <br>
+                            <div>
+                                <label class="form-label" for="confirm_password">Confirm Password:</label>
+                                <input type="text" id="conf_password" class="form-control" for="confirm_password"
+                                    name="confirm_password" />
+                                    <input type="checkbox" onclick="showPassword2()">Show Password
+                                {% for message in get_flashed_messages(category_filter=["passcheck"]) %}
+                                <p style="color:red">{{message}}</p><!-- display each message in a paragraph tag -->
+                                {% endfor %}
+                            </div>
+                            <br>
+                            <div>
+                                <a href="/register/user"><button type="submit"
+                                        class="btn btn-primary btn-block mb-4">Register</button></a>
+                            </div>
+                        </form>
+                    </div>
+</div>
+                <div>
+                    <a href="/">
+                        <h3 class="back display-5">Back</h3>
+                    </a>
+
+                
+                </div>
+
+
+                <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+                <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+                <div id="chartdiv"></div>
+
+            </div>
+
+        </div>>
+
+
+        <script src="/static/script.js"></script>
+
+
+
+
+    </body>
+
+    </html>

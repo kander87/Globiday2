@@ -1,0 +1,556 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Countries</title>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="animate-area2">
+            <div class="row">
+                <h1 class="title display-1"> GLOBIDAY</h1>
+            </div>
+
+            <div id="nav" class="flex align-center justify-between">
+                <div class="greeting">
+                    <!-- add jinja for user_in_db.name here -->
+                    <h1 class="display-4"> Step 1: Add Countries </h1>
+                </div>
+
+                <div class="controls">
+                    <a href="/calendars"><button
+                            type="btn btn-light  rounded-lg border">Dashboard</button></a>
+                    <!-- <a href="/myrecipes"><button type="myrecipes">My Sightings</button></a> -->
+                    <a href="/"><button type=" rounded-lg btn btn-light">Logout</button></a>
+                </div>
+            </div>
+
+            <div>
+                <a href="/calendars">
+                    <h3 class="back display-5">Back</h3>
+                </a>
+            </div>
+
+
+
+<div id="background">
+            <script src="https://www.amcharts.com/lib/4/core.js"></script>
+            <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+            <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+            <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+</div>
+
+<!-- onsubmit="getCountries(event)" -->
+            <div id="chartdiv"></div>
+            <section>
+            <div class="search">
+                    <input type="search" id="searchbox" name="q" placeholder="Search Countries"
+                        aria-label="Search through available countries">
+                    <!-- <button onsubmit="liveSearch(event)">Search</button> -->
+            </div>
+
+
+
+            <form action='/create/calendar' method='post'>
+                <div>
+                    <div class="row3">
+                        <div class="col-xs-6 p-3 border border-dark">
+
+
+                            <h1>Countries</h1>
+
+                            <div class="list-unstyled card-columns" >
+                                
+                                    <div class="box" class=" checkbox form-check box box">
+                                    <input type="checkbox" name="countryCheckbox" value="AD" > Andorra
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box box">
+                                    <input type="checkbox" name="countryCheckbox" value="AL" > Albania
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="AR" > Argentina
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="AT" > Austria
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="AU"  > Australia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="AX"  > Aland Islands
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BA"  > Bosnia and Herzegovina
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BB"  > Barbados
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BE"  > Belgium
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BG"  > Bulgaria
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BJ"  > Benin
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BO"  > Bolivia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BR"  > Brazil
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BS"  > Bahamas
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BW"  > Botswana
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BY"  > Belarus
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="BZ"  > Belize
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CA"  > Canada
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CH"  > Switzerland
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CL"  > Chile
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CN"  > China
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CO"  > Colombia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CR"  > Costa Rica
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CU"  > Cuba
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CY"  > Cyprus
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="CZ"  > Czechia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="DE"  > Germany
+                                </div>
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="DK"  > Denmark
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="DO"  > Dominican Republic
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="EC"  > Ecuador
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="EE"  > Estonia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="EG"  > Egypt
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="ES"  > Spain
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="FI"  > Finland
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="FO"  > Faroe Islands
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="FR"  > France
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GA"  > Gabon
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GB"  > Great Britain
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GD"  > Grenada
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GG"  > Guernsey
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GI"  > Gibraltar
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GL"  > Greenland
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GM"  > Gambia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GR"  > Greece
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GT"  > Guatemala
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="GY"  > Guyana
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="HN"  > Honduras
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="HR"  > Croatia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="HT"  > Haiti
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="HU"  > Hungary
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="ID"  > Indonesia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="IE"  > Ireland
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="IM"  > Isle of Man
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="IS"  > Iceland
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="IT"  > Italy
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="JE"  > Jersey
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="JM"  > Jamaica
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="JP"  > Japan
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="KR"  > South Korea
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="LI"  > Liechtenstein
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="LS"  > Lesotho
+                                </div>
+
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="LT"  > Lithuania
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="LU"  > Luxembourg
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="LV"  > Latvia
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MA"  > Morocco
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MC"  > Monaco
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MD"  > Moldova
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="ME"  > Montenegro
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MG"  > Madagascar
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MK"  > North Macedonia
+                                </div>
+
+                                
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MN"  > Mongolia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MS"  > Montserrat
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MT"  > Malta
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MX"  > Mexico
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="MZ"  > Mozambique
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NA"  > Namibia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NE"  > Niger
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NG"  > Nigeria
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NI"  > Nicaragua
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NL"  > Netherlands
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NO"  > Norway
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="NZ"  > New Zealand
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PA"  > Panama
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PE"  > Peru
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PG"  > Papua New Guinea
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PL"  > Poland
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PR"  > Puerto Rico
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PT"  > Portugal
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="PY"  > Paraguay
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="RO"  > Romania
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="RS"  > Serbia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="RU"  > Russia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SE"  > Sweden
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SG"  > Singapore
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SI"  > Slovenia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SJ"  > Svalbard and Jan Mayen
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SK"  > Slovakia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SM"  > San Marino
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SR"  > Suriname
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="SV"  > El Salvador
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="TN"  > Tunisia
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="TR"  > Turkey
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="UA"  > Ukraine
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="US"  > United States
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="UY"  > Uruguay
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="VA"  > Vatican City
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="VE"  > Venezuela
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="VN"  > Vietnam
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="ZA"  > South Africa
+                                </div>
+
+                                <div class="box" class=" checkbox form-check box">
+                                    <input type="checkbox" name="countryCheckbox" value="ZW"  > Zimbabwe
+                                </div>
+
+                </section>
+
+                                    
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                            <div>
+                                    <button><h3 class="next display-5">Next</h3></button>
+                            </div>
+                </div>
+
+            </form>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

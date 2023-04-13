@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="animate-area2">
+            <div class="row">
+                <h1 class="title display-1"> GLOBIDAY</h1>
+            </div>
+                
+            <div id="nav" class="flex align-center justify-between">      
+                <div class="greeting">
+                    <h1 class="display-4" > WELCOME {{user_in_db.first_name}}</h1>
+                </div>      
+                
+
+                <div class="controls">
+                    <a href="/add/countries"><button type="btn btn-light  rounded-lg border border-danger">Add Calendar</button></a>
+                    <a href="/"><button type=" rounded-lg btn btn-light">Logout</button></a>
+
+
+                </div>
+
+            </div>
+            
+
+            <!-- **************************************will need to edit this a lot!!!!!!!!!!! ************************************************************* -->
+            <table class="table w-50 p-3 col-md-8 offset-md-3">
+                <h5 class="tabletitle display-5" > Saved Calendars</h5>
+                <thead class="thead-pink">
+                    <tr>
+                        <th>Calendar Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for one_calendar in all_calendars %}
+                    <tr>
+                        <td>{{ one_calendar.cal_name}}</td>
+
+                        {# <td>{{ one_calendar.maker.first_name}}</td> #}
+                        <td><a href="/calendar/view/{{one_calendar.id}}">View</a>
+                            {% if one_calendar.user_id == session['user_id']%}|
+                            <a href="/calendar/delete/{{one_calendar.id}}">Delete</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- <div>
+                <a href="/">
+                    <h3 class="back display-5">Back</h3>
+                </a>
+            </div> -->
+
+
+            <script src="https://www.amcharts.com/lib/4/core.js"></script>
+            <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+            <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+            <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+            <div id="chartdiv"></div>
+
+        </div>
+
+    </div>>
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
+
+

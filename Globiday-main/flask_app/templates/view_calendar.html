@@ -1,0 +1,349 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>View Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="animate-area2">
+            <div class="row">
+                <h1 class="title display-1"> GLOBIDAY</h1>
+            </div>
+
+            <div id="nav" class="flex align-center justify-between">
+                <div class="greeting">
+                    <!-- add jinja for user_in_db.name here -->
+                    <h1 class="display-4"> Viewing Calendar {{this_calendar.cal_name}}</h1>
+                </div>
+
+                <div class="controls">
+                    <a href="/calendars"><button type="btn btn-light  rounded-lg border">Dashboard</button></a>
+                    <!-- <a href="/myrecipes"><button type="myrecipes">My Sightings</button></a> -->
+                    <a href="/"><button type=" rounded-lg btn btn-light">Logout</button></a>
+                </div>
+            </div>
+
+            <div>
+                <a href="/calendars">
+                    <h3 class="back display-5">Back</h3>
+                </a>
+            </div>
+
+
+
+            <div id="background">
+                <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+                <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+            </div>
+
+            <!-- onsubmit="getCountries(event)" -->
+            <div id="chartdiv"></div>
+            <section>
+                
+
+                    <!-- <h5 class="tabletitle display-5"> Add Calendar Name</h5> -->
+
+                    <div class="holidayDiv">
+                        <table class="table table-striped holidayList" id="table2">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Holiday Name (local)</th>
+                                    <th>Holiday Name (English)</th>
+                                    <th>Country Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for one_holiday in this_calendar.holidays %}
+                                <tr>
+                                    <td>{{ one_holiday.date}}</td>
+                                    <td>{{ one_holiday.local_name}}</td>
+                                    <td>{{ one_holiday.name}}</td>
+
+                                    <td>
+                                        {% if one_holiday.country_code == "AD"%}
+                                        Andorra
+                                        {% elif one_holiday.country_code == "AL"%}
+                                        Albania
+                                        {% elif one_holiday.country_code == "AR"%}
+                                        Argentina
+                                        {% elif one_holiday.country_code == "AU"%}
+                                        Australia
+                                        {% elif one_holiday.country_code == "AT"%}
+                                        Austria
+                                        {% elif one_holiday.country_code == "AX"%}
+                                        Aland Islands
+                                        {% elif one_holiday.country_code == "BA"%}
+                                        Bosnia and Herzegovina
+                                        {% elif one_holiday.country_code == "BB"%}
+                                        Barbados
+                                        {% elif one_holiday.country_code == "BE"%}
+                                        Belgium
+                                        {% elif one_holiday.country_code == "BG"%}
+                                        Bulgaria
+                                        {% elif one_holiday.country_code == "BJ"%}
+                                        Benin
+                                        {% elif one_holiday.country_code == "BO"%}
+                                        Bolivia
+                                        {% elif one_holiday.country_code == "BR"%}
+                                        Brazil
+                                        {% elif one_holiday.country_code == "BS"%}
+                                        Bahamas
+                                        {% elif one_holiday.country_code == "BW"%}
+                                        Botswana
+                                        {% elif one_holiday.country_code == "BY"%}
+                                        Belarus
+                                        {% elif one_holiday.country_code == "BZ"%}
+                                        Belize
+                                        {% elif one_holiday.country_code == "CA"%}
+                                        Canada
+                                        {% elif one_holiday.country_code == "CL"%}
+                                        Chile
+                                        {% elif one_holiday.country_code == "CN"%}
+                                        China
+                                        {% elif one_holiday.country_code == "CO"%}
+                                        Colombia
+                                        {% elif one_holiday.country_code == "CR"%}
+                                        Costa Rica
+
+                                        {% elif one_holiday.country_code == "CU"%}
+                                        Cuba
+                                        {% elif one_holiday.country_code == "CY"%}
+                                        Cyprus
+                                        {% elif one_holiday.country_code == "CZ"%}
+                                        Czechia
+                                        {% elif one_holiday.country_code == "DE"%}
+                                        Germany
+                                        {% elif one_holiday.country_code == "DK"%}
+                                        Denmark
+
+                                        {% elif one_holiday.country_code == "DO"%}
+                                        Dominican Republic
+
+                                        {% elif one_holiday.country_code == "EC"%}
+                                        Ecuador
+                                        {% elif one_holiday.country_code == "EG"%}
+                                        Egypt
+
+                                        {% elif one_holiday.country_code == "EE"%}
+                                        Estonia
+                                        {% elif one_holiday.country_code == "ES"%}
+                                        Spain
+
+                                        {% elif one_holiday.country_code == "FO"%}
+                                        Faroe Islands
+
+                                        {% elif one_holiday.country_code == "FI"%}
+                                        Finland
+                                        {% elif one_holiday.country_code == "FR"%}
+                                        France
+
+                                        {% elif one_holiday.country_code == "GA"%}
+                                        Gabon
+                                        {% elif one_holiday.country_code == "GM"%}
+                                        Gambia
+
+                                        {% elif one_holiday.country_code == "GI"%}
+                                        Gibraltar
+                                        {% elif one_holiday.country_code == "GR"%}
+                                        Greece
+                                        {% elif one_holiday.country_code == "GL"%}
+                                        Greenland
+                                        {% elif one_holiday.country_code == "GD"%}
+                                        Grenada
+
+                                        {% elif one_holiday.country_code == "GT"%}
+                                        Guatemala
+                                        {% elif one_holiday.country_code == "GG"%}
+                                        Guernsey
+
+                                        {% elif one_holiday.country_code == "GY"%}
+                                        Guyana
+
+                                        {% elif one_holiday.country_code == "HT"%}
+                                        Haiti
+                                        {% elif one_holiday.country_code == "HN"%}
+                                        Honduras
+
+                                        {% elif one_holiday.country_code == "HU"%}
+                                        Hungary
+                                        {% elif one_holiday.country_code == "HR"%}
+                                        Croatia
+
+                                        {% elif one_holiday.country_code == "IS"%}
+                                        Iceland
+
+                                        {% elif one_holiday.country_code == "ID"%}
+                                        Indonesia
+
+                                        {% elif one_holiday.country_code == "IE"%}
+                                        Ireland
+                                        {% elif one_holiday.country_code == "IM"%}
+                                        Isle of Man
+
+                                        {% elif one_holiday.country_code == "IT"%}
+                                        Italy
+                                        {% elif one_holiday.country_code == "JM"%}
+                                        Jamaica
+                                        {% elif one_holiday.country_code == "JP"%}
+                                        Japan
+                                        {% elif one_holiday.country_code == "JE"%}
+                                        Jersey
+                                        {% elif one_holiday.country_code == "KR"%}
+                                        South Korea
+                                        {% elif one_holiday.country_code == "LV"%}
+                                        Latvia
+                                        {% elif one_holiday.country_code == "LS"%}
+                                        Lesotho
+
+                                        {% elif one_holiday.country_code == "LI"%}
+                                        Liechtenstein
+                                        {% elif one_holiday.country_code == "LT"%}
+                                        Lithuania
+                                        {% elif one_holiday.country_code == "LU"%}
+                                        Luxembourg
+
+                                        {% elif one_holiday.country_code == "MG"%}
+                                        Madagascar
+
+                                        {% elif one_holiday.country_code == "MT"%}
+                                        Malta
+
+                                        {% elif one_holiday.country_code == "MX"%}
+                                        Mexico
+
+                                        {% elif one_holiday.country_code == "MD"%}
+                                        Moldova
+                                        {% elif one_holiday.country_code == "MC"%}
+                                        Monaco
+                                        {% elif one_holiday.country_code == "MN"%}
+                                        Mongolia
+                                        {% elif one_holiday.country_code == "ME"%}
+                                        Montenegro
+                                        {% elif one_holiday.country_code == "MS"%}
+                                        Montserrat
+                                        {% elif one_holiday.country_code == "MA"%}
+                                        Morocco
+                                        {% elif one_holiday.country_code == "MZ"%}
+                                        Mozambique
+
+                                        {% elif one_holiday.country_code == "NA"%}
+                                        Namibia
+
+                                        {% elif one_holiday.country_code == "NL"%}
+                                        Netherlands
+                                        {% elif one_holiday.country_code == "NZ"%}
+                                        New Zealand
+                                        {% elif one_holiday.country_code == "NI"%}
+                                        Nicaragua
+                                        {% elif one_holiday.country_code == "NE"%}
+                                        Niger
+                                        {% elif one_holiday.country_code == "NG"%}
+                                        Nigeria
+
+                                        {% elif one_holiday.country_code == "NO"%}
+                                        Norway
+
+                                        {% elif one_holiday.country_code == "PA"%}
+                                        Panama
+                                        {% elif one_holiday.country_code == "PG"%}
+                                        Papua New Guinea
+                                        {% elif one_holiday.country_code == "PY"%}
+                                        Paraguay
+                                        {% elif one_holiday.country_code == "PE"%}
+                                        Peru
+
+                                        {% elif one_holiday.country_code == "PL"%}
+                                        Poland
+                                        {% elif one_holiday.country_code == "PT"%}
+                                        Portugal
+                                        {% elif one_holiday.country_code == "PR"%}
+                                        Puerto Rico
+
+                                        {% elif one_holiday.country_code == "RO"%}
+                                        Romania
+                                        {% elif one_holiday.country_code == "RU"%}
+                                        Russia
+                                        {% elif one_holiday.country_code == "RS"%}
+                                        Serbia
+
+                                        {% elif one_holiday.country_code == "SK"%}
+                                        Slovakia
+                                        {% elif one_holiday.country_code == "SI"%}
+                                        Slovenia
+
+                                        {% elif one_holiday.country_code == "SR"%}
+                                        Suriname
+
+                                        {% elif one_holiday.country_code == "SE"%}
+                                        Sweden
+
+
+                                        {% elif one_holiday.country_code == "SG"%}
+                                        Singapore
+                                        {% elif one_holiday.country_code == "SJ"%}
+                                        Svalbard and Jan Mayen
+
+                                        {% elif one_holiday.country_code == "SM"%}
+                                        San Marino
+                                        {% elif one_holiday.country_code == "SV"%}
+                                        El Salvador
+
+                                        {% elif one_holiday.country_code == "TN"%}
+                                        Tunisia
+                                        {% elif one_holiday.country_code == "TR"%}
+                                        Turkey
+
+                                        {% elif one_holiday.country_code == "UA"%}
+                                        Ukraine
+                                        {% elif one_holiday.country_code == "US"%}
+                                        United States
+                                        {% elif one_holiday.country_code == "UY"%}
+                                        Uruguay
+
+                                        {% elif one_holiday.country_code == "VE"%}
+                                        Venezuela
+                                        {% elif one_holiday.country_code == "VN"%}
+                                        Vietnam
+                                        {% elif one_holiday.country_code == "VA"%}
+                                        Vatican City
+                                        {% elif one_holiday.country_code == "ZW"%}
+                                        Zimbabwe
+                                        {% elif one_holiday.country_code == "ZA"%}
+                                        South Africa
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
